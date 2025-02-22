@@ -6,5 +6,5 @@ export default function TravelTimeInput() {
         onInputHandler
     } = useTravelTimeInput()
 
-    return <input className={"input-default-style"} placeholder={"Travel Time (Hr)"} value={travelTime || ""} onChange={onInputHandler} />
+    return <input className={"input-default-style"} placeholder={"Travel Time (Hour)"} value={travelTime || ""} onChange={onInputHandler} />
 }

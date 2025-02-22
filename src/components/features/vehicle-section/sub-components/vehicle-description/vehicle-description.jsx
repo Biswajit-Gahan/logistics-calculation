@@ -18,7 +18,7 @@ export default function VehicleDescription() {
     return <div className={"[&>*]:break-words"}>
         <p>&gt; Vehicle segment = {vehicleSegment || "No Data"}</p>
         <p>&gt; Vehicle type = {vehicleType || "No Data"}</p>
-        <p>&gt; Vehicle mileage = {vehicleMileage} Rupees / KM</p>
+        <p>&gt; Vehicle mileage = {vehicleMileage} KM / Liter</p>
         <p>&gt; Length of container = {lengthOfContainer} Feet</p>
         <p>&gt; Width of container = {widthOfContainer} Feet</p>
         <p>&gt; Max load capacity (Vehicle) = {vehicleMaxLoadCapacity} Ton</p>

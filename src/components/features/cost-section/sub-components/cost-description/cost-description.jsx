@@ -8,7 +8,7 @@ export default function CostDescription() {
     } = useCostDescription();
 
     return <div className={"[&>*]:break-words"}>
-        <p>&gt; Fuel cost = {fuelCost} Rupees / KM</p>
+        <p>&gt; Fuel cost = {fuelCost} Rupees / Liter</p>
         <p>&gt; {shipmentType ? `${shipmentType} shipment` : "Shipment type"} cost = {shipmentTypeCost} Rupees</p>
     </div>
 }
