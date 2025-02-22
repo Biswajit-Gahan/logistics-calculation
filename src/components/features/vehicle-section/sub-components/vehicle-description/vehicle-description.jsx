@@ -15,7 +15,7 @@ export default function VehicleDescription() {
         palletMaxLoadCapacity,
     } = useVehicleDescription();
 
-    return <div>
+    return <div className={"[&>*]:break-words"}>
         <p>&gt; Vehicle segment = {vehicleSegment || "No Data"}</p>
         <p>&gt; Vehicle type = {vehicleType || "No Data"}</p>
         <p>&gt; Vehicle mileage = {vehicleMileage} Rupees / KM</p>

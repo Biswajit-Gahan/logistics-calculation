@@ -1,21 +1,21 @@
 import {useLogisticsContext} from "../../../../../../context/logistics-context.jsx";
 
-export default function usePalletPriceInput() {
+export default function useFuelCostInput() {
     let {
-        state: {vehicleDetails: {vehicleType, palletPrice}},
+        state: {costDetails: {fuelCost}},
         dispatch,
     } = useLogisticsContext();
 
     function onInputHandler(event) {
         let value = event.target.value;
 
-        if(value !== "" && isNaN(value)) return
+        if(value !== "" && isNaN(value)) return;
 
         dispatch({
-            type: "SET_PALLET_PRICE",
+            type: "SET_FUEL_COST",
             payload: value,
         })
     }
 
-    return {vehicleType, palletPrice, onInputHandler}
+    return {fuelCost, onInputHandler}
 }

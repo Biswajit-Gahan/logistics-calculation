@@ -1,38 +1,28 @@
+import PickupLocationInput from "./sub-components/pickup-location-input/pickup-location-input.jsx";
+import DropLocationInput from "./sub-components/drop-location-input/drop-location-input.jsx";
+import ShipmentTypeOption from "./sub-components/shipment-type-option/shipment-type-option.jsx";
+import TotalWeightBookedInput from "./sub-components/total-weight-booked-input/total-weight-booked-input.jsx";
+import TravelDistanceInput from "./sub-components/travel-distance-input/travel-distance-input.jsx";
+import TravelTimeInput from "./sub-components/travel-time-input/travel-time-input.jsx";
+import ShipmentDescription from "./sub-components/shipment-description/shipment-description.jsx";
+
 export default function ShipmentDetails() {
     return <div>
         <div>
             <p>Shipment Details</p>
         </div>
-
         <div className={"mt-5 bg-neutral-50 p-5 rounded-md box-shadow-down"}>
             <div className={"grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4"}>
-                <input className={"input-default-style"} placeholder={"Pickup location"} />
-
-                <input className={"input-default-style"} placeholder={"Drop location"} />
-
-                <div className={"select-wrapper-default-style"}>
-                    <select className={"w-full outline-0"}>
-                        <option value={""} disabled={true}>Shipment type</option>
-                        <option value={"ambient"}>Ambient</option>
-                        <option value={"frozen"}>Frozen</option>
-                        <option value={"chilled"}>Chilled</option>
-                    </select>
-                </div>
-
-                <input className={"input-default-style"} placeholder={"Total weight booked (KG)"} />
-
-                <input className={"input-default-style"} placeholder={"Travel Distance (KM)"} />
-
-                <input className={"input-default-style"} placeholder={"Travel Time (Hr)"} />
+                <PickupLocationInput />
+                <DropLocationInput />
+                <ShipmentTypeOption />
+                <TotalWeightBookedInput />
+                <TravelDistanceInput />
+                <TravelTimeInput />
             </div>
 
             <div className={"mt-5"}>
-                <p>&gt; Pickup location = Bhubaneswar</p>
-                <p>&gt; Drop location = Kolkata</p>
-                <p>&gt; Shipment type = Ambient</p>
-                <p>&gt; Total weight booked - 500 KG</p>
-                <p>&gt; Travel Distance - 500 KM</p>
-                <p>&gt; Travel Time - 5.30 Hour</p>
+                <ShipmentDescription />
             </div>
         </div>
     </div>
