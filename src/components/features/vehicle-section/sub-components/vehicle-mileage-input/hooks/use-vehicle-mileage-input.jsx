@@ -7,9 +7,13 @@ export default function useVehicleMileageInput() {
     } = useLogisticsContext();
 
     function onInputHandler(event) {
+        let value = event.target.value;
+
+        if(value !== "" && isNaN(value)) return
+
         dispatch({
             type: "SET_VEHICLE_MILEAGE",
-            payload: event.target.value,
+            payload: value,
         })
     }
 

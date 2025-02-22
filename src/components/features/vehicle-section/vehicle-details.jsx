@@ -10,7 +10,7 @@ export default function VehicleDetails() {
             <p>Vehicle Details</p>
         </div>
         <div className={"mt-5 bg-neutral-50 p-5 rounded-md box-shadow-down"}>
-            <div className={"grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4"}>
+            <div className={"grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4"}>
                 <VehicleSegmentOption />
                 <VehicleTypeOption />
                 <VehicleMileageInput />

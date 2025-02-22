@@ -6,10 +6,16 @@ export default function usePalletPriceInput() {
         dispatch,
     } = useLogisticsContext();
 
+
+
     function onInputHandler(event) {
+        let value = event.target.value;
+
+        if(value !== "" && isNaN(value)) return
+
         dispatch({
             type: "SET_PALLET_PRICE",
-            payload: event.target.value,
+            payload: value,
         })
     }
 
