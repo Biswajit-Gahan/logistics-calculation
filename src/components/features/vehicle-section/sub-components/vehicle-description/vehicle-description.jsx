@@ -13,6 +13,7 @@ export default function VehicleDescription() {
         palletSpaceInVehicle,
         palletPrice,
         palletMaxLoadCapacity,
+        totalCostOfVehicleLoadCapacity,
     } = useVehicleDescription();
 
     return <div className={"[&>*]:break-words"}>
@@ -22,6 +23,7 @@ export default function VehicleDescription() {
         <p>&gt; Length of container = {lengthOfContainer} Feet</p>
         <p>&gt; Width of container = {widthOfContainer} Feet</p>
         <p>&gt; Max load capacity (Vehicle) = {vehicleMaxLoadCapacity} Ton</p>
+        <p>&gt; Total load capacity cost (Vehicle) = {totalCostOfVehicleLoadCapacity} Rupees</p>
         <p>&gt; Pallet size = {palletWidth} * {palletHeight} Feet</p>
         <p>&gt; Pallet space in vehicle = {palletSpaceInVehicle} Nos.</p>
         <p>&gt; Max load capacity (Pallet) = {palletMaxLoadCapacity} Ton</p>

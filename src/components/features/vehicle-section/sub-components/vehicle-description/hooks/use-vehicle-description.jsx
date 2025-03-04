@@ -10,6 +10,7 @@ export default function useVehicleDescription() {
                 vehicleType = "",
                 vehicleMileage = 0,
                 palletPrice = 0,
+                totalCostOfVehicleLoadCapacity = 0,
             }
         }
     } = useLogisticsContext();
@@ -44,5 +45,6 @@ export default function useVehicleDescription() {
         vehicleType,
         vehicleMileage,
         palletPrice,
+        totalCostOfVehicleLoadCapacity
     }
 }

@@ -10,6 +10,7 @@ const initialState = {
         lengthOfContainer: 0,
         widthOfContainer: 0,
         vehicleMaxLoadCapacity: 0,
+        totalCostOfVehicleLoadCapacity: 0,
         palletWidth: 0,
         palletHeight: 0,
         palletSpaceInVehicle: 0,
@@ -116,6 +117,13 @@ const reducer = (state, {type, payload}) => {
                 shipmentTypeCost: payload || 0,
             }
             return {...state, costDetails: newPayload};
+        }
+        case "SET_TOTAL_COST_OF_VEHICLE_LOAD_CAPACITY": {
+            let newPayload = {
+                ...state.vehicleDetails,
+                totalCostOfVehicleLoadCapacity: payload || 0,
+            }
+            return {...state, vehicleDetails: newPayload};
         }
         default: return state;
     }

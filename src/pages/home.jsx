@@ -3,6 +3,7 @@ import ShipmentDetails from "../components/features/shipment-section/shipment-de
 import CostDetails from "../components/features/cost-section/cost-details.jsx";
 import LogisticsContext from "../context/logistics-context.jsx";
 import DistanceCost from "../components/features/distance-cost-section/distance-cost.jsx";
+import LoadCostSection from "../components/features/load-cost-section/load-cost-section.jsx";
 
 export default function Home() {
     return <LogisticsContext>
@@ -21,6 +22,9 @@ export default function Home() {
             </div>
             <div className={"mt-5"}>
                 <DistanceCost />
+            </div>
+            <div className={"mt-5"}>
+                <LoadCostSection />
             </div>
             <div>
                 <p className={"text-xs my-5 text-center text-neutral-400"}>Logistics Calculation Simulation | {new Date().getFullYear()}</p>
