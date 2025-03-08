@@ -48,10 +48,10 @@
     }
 
     .input-default-style {
-        @apply w-full bg-[var(--default-bg-color)] p-3 rounded-md outline-0
+        @apply w-full bg-[var(--default-bg-color)] p-3 rounded-md border-1 border-neutral-300 outline-0
     }
 
     .select-wrapper-default-style {
-        @apply w-full bg-[var(--default-bg-color)] p-3 rounded-md
+        @apply w-full bg-[var(--default-bg-color)] p-3 rounded-md border-1 border-neutral-300 outline-0
     }
 }

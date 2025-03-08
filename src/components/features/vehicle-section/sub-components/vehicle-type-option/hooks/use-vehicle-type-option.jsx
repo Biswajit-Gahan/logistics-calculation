@@ -8,10 +8,38 @@ export default function useVehicleTypeOption() {
         dispatch,
     } = useLogisticsContext();
 
+    function getVehicleDetails (vehicleName) {
+        let details = vehicleData.find(vehicle => vehicle.vehicleType === vehicleName);
+
+        if(!details) return {
+            lengthOfContainer: 0,
+            widthOfContainer: 0,
+            vehicleMaxLoadCapacity:  0,
+            palletWidth: 0,
+            palletHeight: 0,
+            palletSpaceInVehicle: 0,
+            palletMaxLoadCapacity:  0,
+        }
+
+        return {
+            lengthOfContainer: details.lengthOfContainer,
+            widthOfContainer: details.widthOfContainer,
+            vehicleMaxLoadCapacity:  details.maxLoadCapacity,
+            palletWidth: details.palletSizeWidth,
+            palletHeight: details.palletSizeHeight,
+            palletSpaceInVehicle: details.palletSpaceInVehicle,
+            palletMaxLoadCapacity:  details.palletMaxLoadCapacity,
+        }
+    }
+
     function onSelectHandler(event) {
+        console.log("called");
         dispatch({
             type: "SET_VEHICLE_TYPE",
-            payload: event.target.value,
+            payload: {
+                vehicleType: event.target.value,
+                ...getVehicleDetails(event.target.value),
+            },
         })
     }
 

@@ -1,4 +1,5 @@
 import useLoadCapacityCostInput from "./hooks/use-load-capacity-cost-input.jsx";
+import TextInput from "../../../../ui/text-input.jsx";
 
 export default function LoadCapacityCostInput() {
     const {
@@ -9,5 +10,6 @@ export default function LoadCapacityCostInput() {
 
     if(!vehicleType) return null;
 
-    return <input className={"input-default-style"} placeholder={"Vehicle load capacity cost"} value={totalCostOfVehicleLoadCapacity || ""} onChange={onInputHandler} />
+    // return <input className={"input-default-style"} placeholder={"Vehicle load capacity cost"} value={totalCostOfVehicleLoadCapacity || ""} onChange={onInputHandler} />
+    return <TextInput placeholder={"Vehicle load capacity cost"} value={totalCostOfVehicleLoadCapacity || ""} onChange={onInputHandler} />
 }

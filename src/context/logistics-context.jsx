@@ -44,7 +44,7 @@ const reducer = (state, {type, payload}) => {
           let newPayload = {
               ...initialState.vehicleDetails,
               vehicleSegment: state.vehicleDetails.vehicleSegment,
-              vehicleType: payload
+              ...payload,
           }
           return {...state, vehicleDetails: newPayload};
         }

@@ -4,7 +4,6 @@ import ShipmentTypeOption from "./sub-components/shipment-type-option/shipment-t
 import TotalWeightBookedInput from "./sub-components/total-weight-booked-input/total-weight-booked-input.jsx";
 import TravelDistanceInput from "./sub-components/travel-distance-input/travel-distance-input.jsx";
 import TravelTimeInput from "./sub-components/travel-time-input/travel-time-input.jsx";
-import ShipmentDescription from "./sub-components/shipment-description/shipment-description.jsx";
 
 export default function ShipmentDetails() {
     return <div>
@@ -19,10 +18,6 @@ export default function ShipmentDetails() {
                 <TotalWeightBookedInput />
                 <TravelDistanceInput />
                 <TravelTimeInput />
-            </div>
-
-            <div className={"mt-5"}>
-                <ShipmentDescription />
             </div>
         </div>
     </div>

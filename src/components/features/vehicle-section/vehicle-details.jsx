@@ -2,7 +2,6 @@ import VehicleSegmentOption from "./sub-components/vehicle-segment-option/vehicl
 import VehicleTypeOption from "./sub-components/vehicle-type-option/vehicle-type-option.jsx";
 import VehicleMileageInput from "./sub-components/vehicle-mileage-input/vehicle-mileage-input.jsx";
 import PalletPriceInput from "./sub-components/pallet-price-input/pallet-price-input.jsx";
-import VehicleDescription from "./sub-components/vehicle-description/vehicle-description.jsx";
 import LoadCapacityCostInput from "./sub-components/load-capacity-cost-input/load-capacity-cost-input.jsx";
 
 export default function VehicleDetails() {
@@ -17,9 +16,6 @@ export default function VehicleDetails() {
                 <VehicleMileageInput />
                 <PalletPriceInput />
                 <LoadCapacityCostInput />
-            </div>
-            <div className={"mt-5"}>
-                <VehicleDescription />
             </div>
         </div>
     </div>
