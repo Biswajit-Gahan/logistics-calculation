@@ -4,12 +4,12 @@ import {useMemo} from "react";
 
 export default function useVehicleTypeOption() {
     let {
-        state: {vehicleDetails: {vehicleSegment, vehicleType}},
+        state: {vehicleDetails: {vehicleSegment, vehicleType}, allVehicleSegments},
         dispatch,
     } = useLogisticsContext();
 
     function getVehicleDetails (vehicleName) {
-        let details = vehicleData.find(vehicle => vehicle.vehicleType === vehicleName);
+        let details = allVehicleSegments.find(vehicle => vehicle.vehicleType === vehicleName);
 
         if(!details) return {
             lengthOfContainer: 0,
@@ -44,7 +44,7 @@ export default function useVehicleTypeOption() {
     }
 
     let allVehicleTypes = useMemo(() => {
-        return vehicleData
+        return allVehicleSegments
             .filter(vehicle => vehicle.vehicleSegment === vehicleSegment)
             .map(vehicle => vehicle.vehicleType)
     }, [vehicleSegment])

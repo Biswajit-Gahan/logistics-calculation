@@ -103,10 +103,8 @@ export default function loadCalculation(
     let averagePalletWeight = getAveragePalletWeight(vehicleMaxLoadCapacity, palletSpaceInVehicle);
     let medianPalletWeight = getMedianAveragePalletWeight(averagePalletWeight, palletMaxLoadCapacity);
     let weightCostPerKg = getWeightCostPerKg(vehicleMaxLoadCapacity, totalCostOfVehicleLoadCapacity);
-
-    console.clear();
     let finalPrice = getTotalRate(totalWeightBooked, medianPalletWeight, averagePalletWeight, weightCostPerKg, 0);
-    console.log(finalPrice, "load");
+
     return {
         totalLoadCalculationCost: +finalPrice.toFixed(2),
     }

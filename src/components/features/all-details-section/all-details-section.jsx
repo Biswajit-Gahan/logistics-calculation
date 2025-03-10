@@ -26,7 +26,6 @@ export default function AllDetailsSection() {
         totalLoadCalculationCost,
     } = useAllDetails();
 
-    console.log(totalDistanceCost, "tdc");
     return <div>
         <div>
             <p>All Details</p>
