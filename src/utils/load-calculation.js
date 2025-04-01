@@ -79,9 +79,12 @@ function getSlabRate(weight, averagePalletWeight, medianPalletWeight, weightCost
 function getTotalRate(totalWeightBooked, medianPalletWeight, averagePalletWeight, weightCostPerKg,) {
     let remainingWeight = totalWeightBooked - medianPalletWeight;
     let weight = remainingWeight <= 0 ? totalWeightBooked : medianPalletWeight;
-    if(remainingWeight <= 0) {
+    // if(remainingWeight <= 0) {
+    if(weight <= medianPalletWeight) {
         return getSlabRate(weight, averagePalletWeight, medianPalletWeight, weightCostPerKg);
     }
+
+    // return 0
 
     return getSlabRate(weight, averagePalletWeight, medianPalletWeight, weightCostPerKg)
         + getTotalRate(remainingWeight, medianPalletWeight, averagePalletWeight, weightCostPerKg);

@@ -28,6 +28,8 @@ const initialState = {
     costDetails: {
         fuelCost: 0,
         shipmentTypeCost: 0,
+        totalDistanceCost: 0,
+        totalLoadCost: 0,
     },
     allVehicleSegments: [],
 }
@@ -132,6 +134,14 @@ const reducer = (state, {type, payload}) => {
                 ...state.shipmentDetails,
                 ...state.costDetails,
                 allVehicleSegments: payload,
+            }
+            return {...state, ...newPayload}
+        }
+        case "SET_DISTANCE_AND_LOAD_COST": {
+            let newPayload = {
+                ...state.costDetails,
+                ...payload,
+
             }
             return {...state, ...newPayload}
         }

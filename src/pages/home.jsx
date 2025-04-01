@@ -3,7 +3,7 @@ import ShipmentDetails from "../components/features/shipment-section/shipment-de
 import CostDetails from "../components/features/cost-section/cost-details.jsx";
 import LogisticsContext from "../context/logistics-context.jsx";
 import AllDetailsSection from "../components/features/all-details-section/all-details-section.jsx";
-import SaveButton from "../components/features/save-button/save-button.jsx";
+import UploadDataButton from "../components/features/upload-data-button/upload-data-button.jsx";
 
 export default function Home() {
     return <LogisticsContext>
@@ -24,7 +24,7 @@ export default function Home() {
                 <AllDetailsSection />
             </div>
             <div className={"mt-5"}>
-                <SaveButton />
+                <UploadDataButton />
             </div>
             <div>
                 <p className={"text-xs my-5 text-center text-neutral-400"}>Logistics Calculation Simulation | {new Date().getFullYear()}</p>

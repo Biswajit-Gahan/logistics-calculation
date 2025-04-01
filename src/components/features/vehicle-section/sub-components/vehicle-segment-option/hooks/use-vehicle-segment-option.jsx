@@ -2,6 +2,7 @@ import {useLogisticsContext} from "../../../../../../context/logistics-context.j
 import {vehicleData} from "../../../../../../data/data.js";
 import {useEffect, useMemo, useState} from "react";
 import useLoadingScreen from "../../../../loading-screen/hooks/use-loading-screen.jsx";
+import config from "../../../../../../utils/config.jsx";
 
 export default function useVehicleSegmentOption() {
     const {showLoadingScreen, hideLoadingScreen} = useLoadingScreen();
@@ -36,7 +37,7 @@ export default function useVehicleSegmentOption() {
         showLoadingScreen();
 
         const response = await fetch(
-            "http://3.111.239.217:9001/calculation/get/all/vehicle/details",
+            `${config.api.baseUrl}${config.api.getAllVehicleEndpoint}`,
             {signal: signal},
         );
         const vData = await response.json();
@@ -44,12 +45,13 @@ export default function useVehicleSegmentOption() {
         dispatch({
             type: "SET_ALL_VEHICLE_SEGMENTS",
             payload: vData.data
-        })
+        });
+        hideLoadingScreen()
     }
 
     useEffect(() => {
         const abortController = new AbortController();
-        getVehicleData(abortController.signal).finally(hideLoadingScreen());
+        getVehicleData(abortController.signal)
         return () => abortController.abort();
     }, []);
 

@@ -31,11 +31,14 @@ export default function useAllDetails() {
             costDetails: {
                 fuelCost,
                 shipmentTypeCost,
+                totalDistanceCost,
+                totalLoadCost,
             }
-        }
+        },
+        dispatch,
     } = useLogisticsContext();
 
-    const {totalDistanceCost} = useMemo(
+    const {totalDistanceCost: distanceCost} = useMemo(
         () => distanceCalculation(fuelCost, vehicleMileage, travelDistance),
         [fuelCost, vehicleMileage, travelDistance]
     );
@@ -44,6 +47,16 @@ export default function useAllDetails() {
         () => loadCalculation(vehicleMaxLoadCapacity, palletSpaceInVehicle, palletMaxLoadCapacity, totalCostOfVehicleLoadCapacity, totalWeightBooked),
         [vehicleMaxLoadCapacity, palletSpaceInVehicle, palletMaxLoadCapacity, totalCostOfVehicleLoadCapacity, totalWeightBooked]
     )
+
+    if(distanceCost !== totalDistanceCost || totalLoadCalculationCost !== totalLoadCost) {
+        dispatch({
+            type: "SET_DISTANCE_AND_LOAD_COST",
+            payload: {
+                totalDistanceCost: distanceCost,
+                totalLoadCost: totalLoadCalculationCost,
+            }
+        })
+    }
 
     return {
         vehicleSegment,
