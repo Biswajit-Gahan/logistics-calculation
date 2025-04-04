@@ -143,7 +143,7 @@ const reducer = (state, {type, payload}) => {
                 ...payload,
 
             }
-            return {...state, ...newPayload}
+            return {...state, costDetails: newPayload}
         }
         default: return state;
     }

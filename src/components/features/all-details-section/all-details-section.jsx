@@ -23,7 +23,7 @@ export default function AllDetailsSection() {
         fuelCost,
         shipmentTypeCost,
         totalDistanceCost,
-        totalLoadCalculationCost,
+        totalLoadCost,
     } = useAllDetails();
 
     return <div>
@@ -56,8 +56,8 @@ export default function AllDetailsSection() {
                 <hr className={"text-neutral-200"}/>
                 <br/>
                 <p>&gt; Total distance Cost = {totalDistanceCost} Rupees</p>
-                <p>&gt; Total Load Cost = {totalLoadCalculationCost} Rupees</p>
-                <p>&gt; Total Cost = {totalDistanceCost + totalLoadCalculationCost} Rupees</p>
+                <p>&gt; Total Load Cost = {totalLoadCost} Rupees</p>
+                <p>&gt; Total Cost = {totalDistanceCost + totalLoadCost} Rupees</p>
             </div>
         </div>
     </div>

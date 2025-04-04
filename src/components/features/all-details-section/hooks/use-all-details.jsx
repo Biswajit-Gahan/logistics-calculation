@@ -1,6 +1,6 @@
 import {useLogisticsContext} from "../../../../context/logistics-context.jsx";
 import distanceCalculation from "../../../../utils/distance-calculation.js";
-import {useMemo} from "react";
+import {useEffect, useMemo} from "react";
 import loadCalculation from "../../../../utils/load-calculation.js";
 
 export default function useAllDetails() {
@@ -38,25 +38,46 @@ export default function useAllDetails() {
         dispatch,
     } = useLogisticsContext();
 
-    const {totalDistanceCost: distanceCost} = useMemo(
+    const {totalDistanceValue} = useMemo(
         () => distanceCalculation(fuelCost, vehicleMileage, travelDistance),
         [fuelCost, vehicleMileage, travelDistance]
     );
-
+    //
     const {totalLoadCalculationCost} = useMemo(
         () => loadCalculation(vehicleMaxLoadCapacity, palletSpaceInVehicle, palletMaxLoadCapacity, totalCostOfVehicleLoadCapacity, totalWeightBooked),
         [vehicleMaxLoadCapacity, palletSpaceInVehicle, palletMaxLoadCapacity, totalCostOfVehicleLoadCapacity, totalWeightBooked]
     )
+    //
+    // if(distanceCost !== totalDistanceCost || totalLoadCalculationCost !== totalLoadCost) {
+    //     dispatch({
+    //         type: "SET_DISTANCE_AND_LOAD_COST",
+    //         payload: {
+    //             totalDistanceCost: distanceCost,
+    //             totalLoadCost: totalLoadCalculationCost,
+    //         }
+    //     })
+    // }
 
-    if(distanceCost !== totalDistanceCost || totalLoadCalculationCost !== totalLoadCost) {
+    useEffect(() => {
         dispatch({
             type: "SET_DISTANCE_AND_LOAD_COST",
             payload: {
-                totalDistanceCost: distanceCost,
+                totalDistanceCost: totalDistanceValue,
                 totalLoadCost: totalLoadCalculationCost,
             }
         })
-    }
+    }, [
+        fuelCost,
+        vehicleMileage,
+        travelDistance,
+        totalDistanceValue,
+        vehicleMaxLoadCapacity,
+        palletSpaceInVehicle,
+        palletMaxLoadCapacity,
+        totalCostOfVehicleLoadCapacity,
+        totalWeightBooked,
+        totalLoadCalculationCost
+    ]);
 
     return {
         vehicleSegment,
@@ -80,6 +101,6 @@ export default function useAllDetails() {
         fuelCost,
         shipmentTypeCost,
         totalDistanceCost,
-        totalLoadCalculationCost,
+        totalLoadCost,
     }
 }

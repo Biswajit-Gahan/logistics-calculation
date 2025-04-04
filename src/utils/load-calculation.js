@@ -110,5 +110,6 @@ export default function loadCalculation(
 
     return {
         totalLoadCalculationCost: +finalPrice.toFixed(2),
+        // totalLoadCalculationCost: 0,
     }
 };
