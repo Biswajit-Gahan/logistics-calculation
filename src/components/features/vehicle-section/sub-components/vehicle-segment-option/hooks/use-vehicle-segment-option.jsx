@@ -36,15 +36,16 @@ export default function useVehicleSegmentOption() {
     async function getVehicleData(signal) {
         showLoadingScreen();
 
-        const response = await fetch(
-            `${config.api.baseUrl}${config.api.getAllVehicleEndpoint}`,
-            {signal: signal},
-        );
-        const vData = await response.json();
+        // const response = await fetch(
+        //     `${config.api.baseUrl}${config.api.getAllVehicleEndpoint}`,
+        //     {signal: signal},
+        // );
+        // const vData = await response.json();
 
         dispatch({
             type: "SET_ALL_VEHICLE_SEGMENTS",
-            payload: vData.data
+            // payload: vData.data
+            payload: vehicleData
         });
         hideLoadingScreen()
     }

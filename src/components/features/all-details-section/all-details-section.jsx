@@ -22,8 +22,10 @@ export default function AllDetailsSection() {
         travelTime,
         fuelCost,
         shipmentTypeCost,
+        driverCost,
         totalDistanceCost,
         totalLoadCost,
+        totalTimeCost,
     } = useAllDetails();
 
     return <div>
@@ -57,6 +59,7 @@ export default function AllDetailsSection() {
                 <br/>
                 <p>&gt; Total distance Cost = {totalDistanceCost} Rupees</p>
                 <p>&gt; Total Load Cost = {totalLoadCost} Rupees</p>
+                <p>&gt; Total Time Cost = {totalTimeCost} Rupees</p>
                 <p>&gt; Total Cost = {totalDistanceCost + totalLoadCost} Rupees</p>
             </div>
         </div>

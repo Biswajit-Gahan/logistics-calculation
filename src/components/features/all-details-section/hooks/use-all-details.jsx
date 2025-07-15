@@ -2,6 +2,7 @@ import {useLogisticsContext} from "../../../../context/logistics-context.jsx";
 import distanceCalculation from "../../../../utils/distance-calculation.js";
 import {useEffect, useMemo} from "react";
 import loadCalculation from "../../../../utils/load-calculation.js";
+import timeCalculation from "../../../../utils/time-calculation.js";
 
 export default function useAllDetails() {
     let {
@@ -31,8 +32,10 @@ export default function useAllDetails() {
             costDetails: {
                 fuelCost,
                 shipmentTypeCost,
+                driverCost,
                 totalDistanceCost,
                 totalLoadCost,
+                totalTimeCost,
             }
         },
         dispatch,
@@ -47,6 +50,8 @@ export default function useAllDetails() {
         () => loadCalculation(vehicleMaxLoadCapacity, palletSpaceInVehicle, palletMaxLoadCapacity, totalCostOfVehicleLoadCapacity, totalWeightBooked),
         [vehicleMaxLoadCapacity, palletSpaceInVehicle, palletMaxLoadCapacity, totalCostOfVehicleLoadCapacity, totalWeightBooked]
     )
+
+    const {totalTimeCalculationCost} = useMemo(() => timeCalculation(shipmentTypeCost, driverCost, travelDistance), [shipmentTypeCost, driverCost, travelDistance])
     //
     // if(distanceCost !== totalDistanceCost || totalLoadCalculationCost !== totalLoadCost) {
     //     dispatch({
@@ -64,6 +69,7 @@ export default function useAllDetails() {
             payload: {
                 totalDistanceCost: totalDistanceValue,
                 totalLoadCost: totalLoadCalculationCost,
+                totalTimeCost: totalTimeCalculationCost,
             }
         })
     }, [
@@ -102,5 +108,6 @@ export default function useAllDetails() {
         shipmentTypeCost,
         totalDistanceCost,
         totalLoadCost,
+        totalTimeCost,
     }
 }
