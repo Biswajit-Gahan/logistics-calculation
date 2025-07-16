@@ -51,17 +51,10 @@ export default function useAllDetails() {
         [vehicleMaxLoadCapacity, palletSpaceInVehicle, palletMaxLoadCapacity, totalCostOfVehicleLoadCapacity, totalWeightBooked]
     )
 
-    const {totalTimeCalculationCost} = useMemo(() => timeCalculation(shipmentTypeCost, driverCost, travelDistance), [shipmentTypeCost, driverCost, travelDistance])
-    //
-    // if(distanceCost !== totalDistanceCost || totalLoadCalculationCost !== totalLoadCost) {
-    //     dispatch({
-    //         type: "SET_DISTANCE_AND_LOAD_COST",
-    //         payload: {
-    //             totalDistanceCost: distanceCost,
-    //             totalLoadCost: totalLoadCalculationCost,
-    //         }
-    //     })
-    // }
+    const {totalTimeCalculationCost} = useMemo(
+        () => timeCalculation(shipmentTypeCost, driverCost, travelDistance),
+        [shipmentTypeCost, driverCost, travelDistance]
+    )
 
     useEffect(() => {
         dispatch({
@@ -78,6 +71,9 @@ export default function useAllDetails() {
         travelDistance,
         totalDistanceValue,
         vehicleMaxLoadCapacity,
+        driverCost,
+        travelDistance,
+        shipmentTypeCost,
         palletSpaceInVehicle,
         palletMaxLoadCapacity,
         totalCostOfVehicleLoadCapacity,
@@ -101,6 +97,7 @@ export default function useAllDetails() {
         pickupLocation,
         dropLocation,
         shipmentType,
+        driverCost,
         totalWeightBooked,
         travelDistance,
         travelTime,

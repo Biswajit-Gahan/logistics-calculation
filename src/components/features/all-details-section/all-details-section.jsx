@@ -54,13 +54,14 @@ export default function AllDetailsSection() {
                 <p>&gt; Travel Time - {travelTime} Hour</p>
                 <p>&gt; Fuel cost = {fuelCost} Rupees / Liter</p>
                 <p>&gt; {shipmentType ? `${shipmentType} shipment` : "Shipment type"} cost = {shipmentTypeCost} Rupees</p>
+                <p>&gt; Driver Cost = {driverCost} Rupees / Liter</p>
                 <br/>
                 <hr className={"text-neutral-200"}/>
                 <br/>
                 <p>&gt; Total distance Cost = {totalDistanceCost} Rupees</p>
                 <p>&gt; Total Load Cost = {totalLoadCost} Rupees</p>
                 <p>&gt; Total Time Cost = {totalTimeCost} Rupees</p>
-                <p>&gt; Total Cost = {totalDistanceCost + totalLoadCost} Rupees</p>
+                <p>&gt; Total Cost = {totalDistanceCost + totalLoadCost + totalTimeCost} Rupees</p>
             </div>
         </div>
     </div>
