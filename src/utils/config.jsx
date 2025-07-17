@@ -1,8 +1,8 @@
 const config = {
     api: {
-        baseUrl: "https://rhl-calculation.onrender.com",
-        getAllVehicleEndpoint: "/calculation/get/all/vehicle/details",
-        saveCalculationHistoryEndpoint: "/calculation/calculation/history",
+        baseUrl: "http://3.109.236.90",
+        getAllVehicleEndpoint: "/rhl/get/all/vehicle/details",
+        saveCalculationHistoryEndpoint: "/rhl/calculation/history",
     }
 }
 

@@ -3,30 +3,6 @@ import useLoadingScreen from "../../loading-screen/hooks/use-loading-screen.jsx"
 import config from "../../../../utils/config.jsx";
 
 export default function useUploadDataButton() {
-    // {
-    //     "vehicleSegment": "Heavy Duty",
-    //     "vehicleType": "Truck",
-    //     "vehicleMileage": "8.5",
-    //     "lengthOfContainer": "12.0",
-    //     "widthOfContainer": "2.5",
-    //     "vehicleMaxLoadCapacity": "15000",
-    //     "totalCostOfVehicleLoadCapacity": "50000",
-    //     "palletWidth": "1.2",
-    //     "palletHeight": "1.5",
-    //     "palletSpaceInVehicle": "20",
-    //     "palletPrice": "250",
-    //     "palletMaxLoadCapacity": "1000",
-    //     "pickupLocation": "New York",
-    //     "dropLocation": "Los Angeles",
-    //     "shipmentType": "Express",
-    //     "totalWeightBooked": "12000",
-    //     "travelDistance": "4500",
-    //     "travelTime": "72",
-    //     "fuelCost": "1200",
-    //     "shipmentTypeCost": "5000",
-    //     "totalDistanceCost": "8000",
-    //     "totalLoadCalculationCost": "15000"
-    // }
     const {
         state: {
             vehicleDetails: {
@@ -54,8 +30,10 @@ export default function useUploadDataButton() {
             costDetails: {
                 fuelCost,
                 shipmentTypeCost,
+                driverCost,
                 totalDistanceCost,
                 totalLoadCost,
+                totalTimeCost
             }
         },
     } = useLogisticsContext();
@@ -86,8 +64,10 @@ export default function useUploadDataButton() {
                 travelTime,
                 fuelCost,
                 shipmentTypeCost,
+                driverCost,
                 totalDistanceCost,
-                totalLoadCalculationCost: totalLoadCost
+                totalLoadCalculationCost: totalLoadCost,
+                totalTimeCost,
         }
 
         const response = await fetch(
@@ -101,8 +81,7 @@ export default function useUploadDataButton() {
             }
         );
 
-        const responseData = await response.json();
-        console.log(responseData);
+        await response.json();
         hideLoadingScreen();
     }
 
